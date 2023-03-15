@@ -1,0 +1,20 @@
+{
+  "meetings": [
+    {
+      "id": 1,
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "email": "jan@kowalski.not",
+      "date": "2022-01-01",
+      "time": "10:00"
+    },
+    {
+      "firstName": "Anna",
+      "lastName": "Kowalska",
+      "email": "anna.nowak@gmail.com",
+      "date": "2002-12-10",
+      "time": "10:00",
+      "id": 2
+    }
+  ]
+}
