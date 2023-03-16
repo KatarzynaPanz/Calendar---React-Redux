@@ -5,7 +5,8 @@ The aim of the project was to create an application useful for recording dates o
 
 ## Features
 1. A validated form created to provide meeting data (name, surname, date, hour, email address)
-2.
+2. A list of meetings displayed on the screen
+3. Meetings are sent by local REST API created by JSON server and stored in data.json file.
 
 ## Technologies
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
