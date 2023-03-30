@@ -2,7 +2,11 @@ import React from 'react';
 
 import CalendarList from './CalendarList'
 import CalendarForm from './CalendarForm';
-import { loadMeetingsAction, saveMeetingAction } from "../actions/calendar";
+import {
+  loadMeetingsAction,
+  saveMeetingAction,
+  removeMeetingAction,
+} from "../actions/calendar";
 import { connect } from "react-redux";
 
 class Calendar extends React.Component {
@@ -31,6 +35,18 @@ class Calendar extends React.Component {
       });
   };
 
+  removeMeetingFromApi = (id, e) => {
+    const options = {
+      method: "DELETE",
+    };
+    fetch(`${this.apiUrl}/${id}`, options)
+      .then(() => {
+        this.props.onRemove(id);
+      })
+      .catch((err) => console.error(err))
+      .finally(console.log("Zakończone!"));
+  };
+
   componentDidMount() {
     fetch(this.apiUrl)
       .then((resp) => {
@@ -51,8 +67,11 @@ class Calendar extends React.Component {
   render() {
     return (
       <section>
-        <CalendarList meetings={this.props.meetings} />
         <CalendarForm saveMeeting={this.sendMeetingToApi} />
+        <CalendarList
+          meetings={this.props.meetings}
+          removeMeeting={this.removeMeetingFromApi}
+        />
       </section>
     );
   }
@@ -66,6 +85,7 @@ const mapStateToProps = (state, props) => {
 const mapActionToProps = {
   onLoad: loadMeetingsAction,
   onSave: saveMeetingAction,
+  onRemove: removeMeetingAction,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(Calendar);

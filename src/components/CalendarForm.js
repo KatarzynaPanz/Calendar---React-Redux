@@ -1,4 +1,13 @@
 import React from "react";
+import {
+  StyledTitle,
+  StyledDiv,
+  FieldName,
+  StyledInput,
+  FieldContainer,
+  SubmitInput,
+  StyledList,
+} from "../style/StyledElements";
 
 class CalendarForm extends React.Component {
   state = {
@@ -12,66 +21,63 @@ class CalendarForm extends React.Component {
 
   render() {
     return (
-      <form action="" onSubmit={this.handleSubmit}>
-        <ul>{this.renderErrors()}</ul>
-        <div>
-          <label>
-            Data:{" "}
-            <input
-              name="date"
-              onChange={this.handleFieldChange}
-              value={this.state.date}
-              placeholder="RRRR-MM-DD"
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Godzina:{" "}
-            <input
-              name="time"
-              onChange={this.handleFieldChange}
-              value={this.state.time}
-              placeholder="HH:MM"
-            />
-          </label>
-        </div>
+      <>
+        <StyledTitle>Meetings Calendar</StyledTitle>
+        <StyledList>{this.renderErrors()}</StyledList>
+        <StyledDiv>
+          <form action="" onSubmit={this.handleSubmit}>
+            <FieldContainer>
+              <FieldName>Date: </FieldName>
+              <StyledInput
+                name="date"
+                onChange={this.handleFieldChange}
+                value={this.state.date}
+                placeholder="YYYY-MM-DD"
+              />
+            </FieldContainer>
+            <FieldContainer>
+              <FieldName>Hour: </FieldName>
+              <StyledInput
+                name="time"
+                onChange={this.handleFieldChange}
+                value={this.state.time}
+                placeholder="HH:MM"
+              />
+            </FieldContainer>
 
-        <div>
-          <label>
-            Imię:{" "}
-            <input
-              name="firstName"
-              onChange={this.handleFieldChange}
-              value={this.state.firstName}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Nazwisko:{" "}
-            <input
-              name="lastName"
-              onChange={this.handleFieldChange}
-              value={this.state.lastName}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Email:{" "}
-            <input
-              name="email"
-              onChange={this.handleFieldChange}
-              value={this.state.email}
-              placeholder="nazwa@poczty.pl"
-            />
-          </label>
-        </div>
-        <div>
-          <input type="submit" value="zapisz" />
-        </div>
-      </form>
+            <FieldContainer>
+              <FieldName>Name: </FieldName>
+              <StyledInput
+                name="firstName"
+                onChange={this.handleFieldChange}
+                value={this.state.firstName}
+                placeholder="name"
+              />
+            </FieldContainer>
+            <FieldContainer>
+              <FieldName>Last name: </FieldName>
+              <StyledInput
+                name="lastName"
+                onChange={this.handleFieldChange}
+                value={this.state.lastName}
+                placeholder="last name"
+              />
+            </FieldContainer>
+            <FieldContainer>
+              <FieldName>Email: </FieldName>
+              <StyledInput
+                name="email"
+                onChange={this.handleFieldChange}
+                value={this.state.email}
+                placeholder="name@mail.pl"
+              />
+            </FieldContainer>
+            <div>
+              <SubmitInput type="submit" value="save" />
+            </div>
+          </form>
+        </StyledDiv>
+      </>
     );
   }
 
@@ -93,23 +99,23 @@ class CalendarForm extends React.Component {
     const errors = [];
 
     if (!this.isDateCorrect()) {
-      errors.push("Popraw wprowadzoną datę");
+      errors.push("Correct the entered date");
     }
 
     if (!this.isTimeCorrect()) {
-      errors.push("Popraw wprowadzoną godiznę");
+      errors.push("Correct the entered hour");
     }
 
     if (!this.isFirstNameCorrect()) {
-      errors.push("Wprowadź imię");
+      errors.push("Correct the entered name");
     }
 
     if (!this.isLastNameCorrect()) {
-      errors.push("Wprowadż nazwisko");
+      errors.push("Correct the entered last name");
     }
 
     if (!this.isEmailCorrect()) {
-      errors.push("Wprowadź poprawny adres email");
+      errors.push("Correct the entered email");
     }
 
     return errors;

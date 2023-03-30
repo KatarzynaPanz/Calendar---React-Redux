@@ -13,3 +13,11 @@ export const saveMeetingAction = (meetingData) => {
     payload: meetingData,
   };
 };
+
+export const removeMeetingAction = (id) => {
+  return {
+    type: "removeMeeting",
+    payload: id,
+  };
+};
+

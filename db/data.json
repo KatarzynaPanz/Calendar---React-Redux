@@ -1,17 +1,17 @@
 {
   "meetings": [
     {
-      "id": 1,
-      "firstName": "Jan",
-      "lastName": "Kowalski",
-      "email": "jan@kowalski.not",
-      "date": "2022-01-01",
-      "time": "10:00"
+      "firstName": "Kasia",
+      "lastName": "Kowalska",
+      "email": "kasia@op.pl",
+      "date": "2002-12-10",
+      "time": "10:00",
+      "id": 1
     },
     {
-      "firstName": "Anna",
+      "firstName": "Kasia",
       "lastName": "Kowalska",
-      "email": "anna.nowak@gmail.com",
+      "email": "kasia@op.pl",
       "date": "2002-12-10",
       "time": "10:00",
       "id": 2

@@ -7,10 +7,22 @@ const reducer = (state = initState, action) => {
     case "loadMeetings":
       const data = action.payload;
       console.log(data);
-      return { ...state, meetings: data};
+      return { ...state, meetings: data };
     case "saveMeeting":
       const meeting = action.payload;
-      return {...state, meetings:[...state.meetings, meeting]};
+      console.log(meeting);
+      return { ...state, meetings: [...state.meetings, meeting] };
+    case "removeMeeting":
+      console.log(action.payload);
+      const currMeetings = state.meetings.filter(
+        (meeting) => meeting.id != action.payload
+      );
+      console.log(currMeetings);
+      return {
+        ...state,
+        meetings: currMeetings,
+      };
+      
   }
   return state;
 };
