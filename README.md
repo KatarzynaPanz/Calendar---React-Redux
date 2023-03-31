@@ -1,5 +1,7 @@
 # Calendar - React&Redux
 
+https://user-images.githubusercontent.com/91606497/229059921-6c7482ee-ad6e-4b8b-9aea-7562f9e13d6c.mp4
+
 ## About project
 The aim of the project was to create an application useful for recording dates of meetings. The Redux library was used in this project. Redux strips away responsibility for state management from each individual component and puts it in the hand of a single store that holds data from anywhere in the application.
 
